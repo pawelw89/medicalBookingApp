@@ -23,4 +23,23 @@ public class Adress {
     @Column(name = "street_number")
     private String streetNumber;
 
+    public String getCountry() {
+        return country;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public int getZipCode() {
+        return zipCode;
+    }
+
+    public String getStreet() {
+        return street;
+    }
+
+    public String getStreetNumber() {
+        return streetNumber;
+    }
 }

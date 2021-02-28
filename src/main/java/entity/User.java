@@ -22,4 +22,19 @@ public class User {
     @Column(name = "adress")
     private Adress adress;
 
+    public int getPesel() {
+        return pesel;
+    }
+
+    public String getFirstName() {
+        return firstName;
+    }
+
+    public String getSurname() {
+        return surname;
+    }
+
+    public Adress getAdress() {
+        return adress;
+    }
 }
