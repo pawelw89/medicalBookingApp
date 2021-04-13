@@ -1,12 +1,18 @@
 package entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.EnumType;
-import javax.persistence.Enumerated;
+import lombok.Getter;
 
+import javax.persistence.*;
+
+@Getter
 @Entity
+@Table(name = "doctor")
 public class Doctor {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
 
     @Column(name = "name")
     private String name;
@@ -15,18 +21,9 @@ public class Doctor {
     private String surname;
 
     @Enumerated(EnumType.STRING)
-    @Column(name = "speciality")
     private Speciality speciality;
 
-    public String getName() {
-        return name;
-    }
+    @OneToOne(mappedBy = "doctor")
+    private Reservation reservation;
 
-    public String getSurname() {
-        return surname;
-    }
-
-    public Speciality getSpeciality() {
-        return speciality;
-    }
 }

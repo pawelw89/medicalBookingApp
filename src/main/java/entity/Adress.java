@@ -1,12 +1,20 @@
 package entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Table;
+import lombok.Getter;
+import lombok.Setter;
 
+import javax.persistence.*;
+
+@Getter
+@Setter
 @Entity
 @Table(name = "adress")
 public class Adress {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column(name = "id")
+    private long id;
 
     @Column(name = "country")
     private String country;
@@ -23,23 +31,7 @@ public class Adress {
     @Column(name = "street_number")
     private String streetNumber;
 
-    public String getCountry() {
-        return country;
-    }
+    @OneToOne(mappedBy = "adress")
+    private User user;
 
-    public String getCity() {
-        return city;
-    }
-
-    public int getZipCode() {
-        return zipCode;
-    }
-
-    public String getStreet() {
-        return street;
-    }
-
-    public String getStreetNumber() {
-        return streetNumber;
-    }
 }

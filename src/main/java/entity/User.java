@@ -1,10 +1,10 @@
 package entity;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import lombok.Getter;
 
+import javax.persistence.*;
+
+@Getter
 @Entity
 @Table(name = "user")
 public class User {
@@ -19,22 +19,11 @@ public class User {
     @Column(name = "surname")
     private String surname;
 
-    @Column(name = "adress")
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "adress_id")
     private Adress adress;
 
-    public int getPesel() {
-        return pesel;
-    }
+    @OneToOne(mappedBy = "user")
+    private Reservation reservation;
 
-    public String getFirstName() {
-        return firstName;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public Adress getAdress() {
-        return adress;
-    }
 }
