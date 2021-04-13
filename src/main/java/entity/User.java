@@ -26,4 +26,7 @@ public class User {
     @OneToOne(mappedBy = "user")
     private Reservation reservation;
 
+    @OneToOne(mappedBy = "user")
+    private Role role;
+
 }
