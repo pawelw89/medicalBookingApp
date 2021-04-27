@@ -1,10 +1,13 @@
 package entity;
 
 import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
+@Setter
 @Entity
 @Table(name = "doctor")
 public class Doctor {
@@ -21,9 +24,10 @@ public class Doctor {
     private String surname;
 
     @Enumerated(EnumType.STRING)
+    @Column(name = "speciality")
     private Speciality speciality;
 
-    @OneToOne(mappedBy = "doctor")
-    private Reservation reservation;
+    @OneToMany(mappedBy = "doctor")
+    private List<Reservation> reservations;
 
 }

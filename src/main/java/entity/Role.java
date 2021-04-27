@@ -14,12 +14,11 @@ public class Role {
     @Column(name = "id")
     private long id;
 
-    @Column(name = "user")
-    @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_pesel")
-    private User user;
-
     @Enumerated(EnumType.STRING)
+    @Column(name = "role_name")
     private RoleName roleName;
+
+    @ManyToOne(targetEntity = User.class)
+    private User user;
 
 }

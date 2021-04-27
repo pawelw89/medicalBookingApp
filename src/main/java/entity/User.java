@@ -3,6 +3,7 @@ package entity;
 import lombok.Getter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Getter
 @Entity
@@ -11,22 +12,25 @@ public class User {
 
     @Id
     @Column(name = "pesel")
+    //@Size(min=11, max=11)
     private int pesel;
 
     @Column(name = "first_name")
+    //@Pattern(regex=....)
     private String firstName;
 
     @Column(name = "surname")
+    //@Pattern(regex=....)
     private String surname;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "adress_id")
+    @JoinColumn(name = "id")
     private Adress adress;
 
-    @OneToOne(mappedBy = "user")
-    private Reservation reservation;
+    @OneToMany(mappedBy = "user")
+    private List<Reservation> reservations;
 
-    @OneToOne(mappedBy = "user")
-    private Role role;
+    @OneToMany(mappedBy = "user")
+    private List <Role> roles;
 
 }

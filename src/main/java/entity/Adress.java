@@ -17,21 +17,26 @@ public class Adress {
     private long id;
 
     @Column(name = "country")
+    //@Pattern
     private String country;
 
     @Column(name = "city")
+    //@Pattern
+    //@Size(min=3, max=30)
     private String city;
 
     @Column(name = "zip_code")
+    //@Size(min=5, max=5)
     private int zipCode;
 
     @Column(name = "street")
+    //@Pattern
     private String street;
 
     @Column(name = "street_number")
     private String streetNumber;
 
-    @OneToOne(mappedBy = "adress")
+    @OneToOne(mappedBy = "user")
     private User user;
 
 }
