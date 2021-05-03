@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import javax.validation.constraints.Pattern;
 import java.util.List;
 
 @Getter
@@ -18,9 +19,11 @@ public class Doctor {
     private long id;
 
     @Column(name = "name")
+    @Pattern(regexp="^[A-Za-z]+$")
     private String name;
 
     @Column(name = "surname")
+    @Pattern(regexp="^[A-Za-z]+$")
     private String surname;
 
     @Enumerated(EnumType.STRING)
