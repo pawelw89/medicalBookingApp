@@ -10,14 +10,15 @@ import java.util.List;
 
 @Getter
 @Setter
-@Entity
-@Table(name = "user")
-public class User {
+@MappedSuperclass
+public abstract class User {
 
     @Id
     @Column(name = "pesel")
     @Size(min=11, max=11)
-    private int pesel;
+    private long pesel;
+
+    private String password;
 
     @Column(name = "first_name")
     @Pattern(regexp="^[A-Za-z]+$")
@@ -29,7 +30,7 @@ public class User {
 
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "id")
-    private Address adress;
+    private Address address;
 
     @OneToMany(mappedBy = "user")
     private List<Reservation> reservations;
@@ -37,6 +38,4 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List <Role> roles;
 
-    public User() {
-    }
 }

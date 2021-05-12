@@ -10,7 +10,7 @@ import javax.validation.constraints.Size;
 @Getter
 @Setter
 @Entity
-@Table(name = "adress")
+@Table(name = "address")
 public class Address {
 
     @Id
@@ -37,8 +37,5 @@ public class Address {
 
     @Column(name = "street_number")
     private String streetNumber;
-
-    @OneToOne(mappedBy = "user")
-    private User user;
 
 }

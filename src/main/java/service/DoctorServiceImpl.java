@@ -28,7 +28,7 @@ public class DoctorServiceImpl implements DoctorService {
     @Override
     public Doctor updateDoctor(long id, Doctor doctor) {
         Doctor doctorFromDatabase = doctorRepository.getOne(id);
-        doctorFromDatabase.setName(doctor.getName());
+        doctorFromDatabase.setFirstName(doctor.getFirstName());
         doctorFromDatabase.setSurname(doctor.getSurname());
         doctorFromDatabase.setSpeciality(doctor.getSpeciality());
         doctorRepository.flush();

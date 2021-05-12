@@ -9,6 +9,7 @@ import java.time.LocalDateTime;
 @Getter
 @Setter
 @Entity
+@Table(name = "reservation")
 public class Reservation {
 
     @Id
@@ -24,4 +25,8 @@ public class Reservation {
 
     @ManyToOne(targetEntity = Doctor.class)
     private Doctor doctor;
+
+    //foreign key
+    //@Column(name="user_id")
+    //private long userId;
 }
