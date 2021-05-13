@@ -10,41 +10,40 @@ import javax.transaction.Transactional;
 import java.util.List;
 
 @Transactional
-@Service ("userService")
+@Service ("patientService")
 public class PatientServiceImpl implements PatientService {
 
     @Autowired
-    private PatientRepository PatientRepository;
+    private PatientRepository patientRepository;
 
     @Override
     public List<Patient> getAllPatients() {
-        return PatientRepository.findAll();
+        return patientRepository.findAll();
     }
 
     @Override
     public Patient getPatientByPesel(long pesel) {
-        return PatientRepository.getOne(pesel);
+        return patientRepository.getOne(pesel);
     }
 
     @Override
     public Patient updatePatient(long pesel, User user) {
-        Patient patientFromDatabase = PatientRepository.getOne(pesel);
+        Patient patientFromDatabase = patientRepository.getOne(pesel);
         patientFromDatabase.setFirstName(user.getFirstName());
         patientFromDatabase.setSurname(user.getSurname());
         // nie wiem czy w ten sposób ustawię adress...
         // patientFromDatabase.setAddress(Patient.);
-        PatientRepository.flush();
-        Patient updatedPatient = PatientRepository.getOne(pesel);
-        return updatedPatient;
+        patientRepository.flush();
+        return patientRepository.getOne(pesel);
     }
 
     @Override
     public Patient savePatient(Patient patient) {
-        return PatientRepository.save(Patient);
+        return patientRepository.save(patient);
     }
 
     @Override
     public void deletePatientByPesel(long pesel) {
-        PatientRepository.deleteById(pesel);
+        patientRepository.deleteById(pesel);
     }
 }

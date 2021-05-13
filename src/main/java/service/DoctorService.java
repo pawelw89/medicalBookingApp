@@ -7,11 +7,11 @@ public interface DoctorService {
 
     List<Doctor> getAllDoctors();
 
-    Doctor findDoctorById (long id);
+    Doctor findDoctorByPesel (long pesel);
 
-    Doctor updateDoctor (long id, Doctor doctor);
+    Doctor updateDoctor (long pesel, Doctor doctor);
 
     Doctor saveDoctor (Doctor doctor);
 
-    void deleteDoctorById (long id);
+    void deleteDoctorByPesel (long pesel);
 }

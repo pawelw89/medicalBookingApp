@@ -21,19 +21,18 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public Doctor findDoctorById(long id) {
-        return doctorRepository.getOne(id);
+    public Doctor findDoctorByPesel(long pesel) {
+        return doctorRepository.getOne(pesel);
     }
 
     @Override
-    public Doctor updateDoctor(long id, Doctor doctor) {
-        Doctor doctorFromDatabase = doctorRepository.getOne(id);
+    public Doctor updateDoctor(long pesel, Doctor doctor) {
+        Doctor doctorFromDatabase = doctorRepository.getOne(pesel);
         doctorFromDatabase.setFirstName(doctor.getFirstName());
         doctorFromDatabase.setSurname(doctor.getSurname());
         doctorFromDatabase.setSpeciality(doctor.getSpeciality());
         doctorRepository.flush();
-        Doctor updatedDoctor = doctorRepository.getOne(id);
-        return updatedDoctor;
+        return doctorRepository.getOne(pesel);
     }
 
     @Override
@@ -42,7 +41,7 @@ public class DoctorServiceImpl implements DoctorService {
     }
 
     @Override
-    public void deleteDoctorById(long id) {
-        doctorRepository.deleteById(id);
+    public void deleteDoctorByPesel(long pesel) {
+        doctorRepository.deleteById(pesel);
     }
 }

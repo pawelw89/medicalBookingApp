@@ -20,10 +20,12 @@ public class Reservation {
     @Column(name = "date_and_time")
     private LocalDateTime dateAndTime;
 
-    @ManyToOne(targetEntity = User.class)
-    private User user;
+    @ManyToOne
+    @JoinColumn(name = "patient_pesel")
+    private Patient patient;
 
-    @ManyToOne(targetEntity = Doctor.class)
+    @ManyToOne
+    @JoinColumn(name = "doctor_pesel")
     private Doctor doctor;
 
     //foreign key

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Getter
@@ -13,6 +14,9 @@ public class Patient extends User{
 
     @Enumerated(EnumType.STRING)
     @Column(name="role")
-    private Role PATIENT;
+    private Role role;
+
+    @OneToMany(mappedBy = "patient")
+    private List<Reservation> reservations;
 
 }

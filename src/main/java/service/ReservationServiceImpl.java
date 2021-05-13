@@ -21,13 +21,8 @@ public class ReservationServiceImpl implements ReservationService{
     }
 
     @Override
-    public List<Reservation> getAllReservationsByUserId(long id) {
-        return reservationRepository.listOfReservationsByUserId(id);
-    }
-
-    @Override
-    public List<Reservation> getAllReservationsByDoctorId(long id) {
-        return reservationRepository.listOfReservationsByDoctorId(id);
+    public List<Reservation> getAllReservationsByUserPesel(long pesel) {
+        return reservationRepository.listOfReservationsByUserPesel(pesel);
     }
 
     @Override
@@ -35,10 +30,9 @@ public class ReservationServiceImpl implements ReservationService{
         Reservation reservationFromDatabase = reservationRepository.getOne(id);
         reservationFromDatabase.setDateAndTime(reservation.getDateAndTime());
         reservationFromDatabase.setDoctor(reservation.getDoctor());
-        reservationFromDatabase.setUser(reservation.getUser());
+        reservationFromDatabase.setPatient(reservation.getPatient());
         reservationRepository.flush();
-        Reservation updatedReservation = reservationRepository.getOne(id);
-        return updatedReservation;
+        return reservationRepository.getOne(id);
     }
 
     @Override

@@ -33,9 +33,6 @@ public abstract class User {
     private Address address;
 
     @OneToMany(mappedBy = "user")
-    private List<Reservation> reservations;
-
-    @OneToMany(mappedBy = "user")
     private List <Role> roles;
 
 }

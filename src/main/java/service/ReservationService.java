@@ -1,17 +1,14 @@
 package service;
 
-import entity.Doctor;
 import entity.Reservation;
-import entity.User;
+
 import java.util.List;
 
 public interface ReservationService {
 
     List<Reservation> getAllReservations();
 
-    List<Reservation> getAllReservationsByUserId (long id);
-
-    List<Reservation> getAllReservationsByDoctorId (long id);
+    List<Reservation> getAllReservationsByUserPesel (long pesel);
 
     Reservation updateReservation (long id, Reservation reservation);
 
