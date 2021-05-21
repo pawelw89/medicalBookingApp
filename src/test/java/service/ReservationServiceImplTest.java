@@ -48,7 +48,7 @@ class ReservationServiceImplTest {
     }
 
     @Test
-    void shouldUpdateAndReturnUpdatedReservationByPesel() {
+    void shouldUpdateAndReturnUpdatedReservationById() {
         r1.setId(id);
         Patient patient = new Patient();
         r2.setPatient(patient);
@@ -61,7 +61,7 @@ class ReservationServiceImplTest {
     }
 
     @Test
-    void shouldSaveAndReturnNewReservationByPesel() {
+    void shouldSaveAndReturnNewReservationById() {
         r1.setId(id);
         given(reservationRepository.save(r1)).willReturn(r1);
 
