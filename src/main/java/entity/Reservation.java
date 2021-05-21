@@ -28,6 +28,7 @@ public class Reservation {
     @JoinColumn(name = "doctor_pesel")
     private Doctor doctor;
 
+    //czy to jest potrzebne? do czego?
     //foreign key
     //@Column(name="user_id")
     //private long userId;

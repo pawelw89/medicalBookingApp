@@ -52,7 +52,7 @@ class DoctorServiceImplTests {
     }
 
     @Test
-    void shouldUpdateDoctorAndReturnUpdatedDoctorByPesel(){
+    void shouldUpdateAndReturnUpdatedDoctorByPesel(){
         d1.setPesel(pesel);
         d2.setFirstName("Piotr");
         d2.setSurname("Nowak");

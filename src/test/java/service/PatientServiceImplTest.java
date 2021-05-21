@@ -11,11 +11,11 @@ import repository.PatientRepository;
 
 import java.util.Arrays;
 import java.util.List;
-import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
 import static org.mockito.BDDMockito.given;
-import static org.mockito.Mockito.*;
+import static org.mockito.Mockito.times;
+import static org.mockito.Mockito.verify;
 
 @ExtendWith(MockitoExtension.class)
 class PatientServiceImplTest {
@@ -52,7 +52,7 @@ class PatientServiceImplTest {
     }
 
     @Test
-    void shouldUpdatePatientAndReturnUpdatedDoctorByPesel() {
+    void shouldUpdateAndReturnUpdatedDoctorByPesel() {
         p1.setPesel(pesel);
         p2.setFirstName("Piotr");
         p2.setSurname("Nowak");

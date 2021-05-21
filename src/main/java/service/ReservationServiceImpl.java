@@ -1,6 +1,7 @@
 package service;
 
 import entity.Reservation;
+import entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import repository.ReservationRepository;
@@ -20,9 +21,11 @@ public class ReservationServiceImpl implements ReservationService{
         return reservationRepository.findAll();
     }
 
+    //wymaga dopracowania?
+    //nadpisać w tej klasie metodę listOfReservationsByUserPesel ?
     @Override
-    public List<Reservation> getAllReservationsByUserPesel(long pesel) {
-        return reservationRepository.listOfReservationsByUserPesel(pesel);
+    public List<Reservation> getAllReservationsByUserPesel(User user, long pesel) {
+        return reservationRepository.listOfReservationsByUserPesel(user, pesel);
     }
 
     @Override
